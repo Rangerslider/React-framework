@@ -1,83 +1,79 @@
 import './App.css';
-import Header from "./MyComponents/Header";
-import { Todos } from "./MyComponents/Todos";
-import { Footer } from "./MyComponents/Footer";
-import { AddTodo } from "./MyComponents/AddTodo";
-import { About } from "./MyComponents/About";
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import Nav from'./Nav';
+import Home from "./Home";
 
-function App() {
-  let initTodo;
-  if (localStorage.getItem("todos") === null) {
-    initTodo = [];
-  }
-  else {
-    initTodo = JSON.parse(localStorage.getItem("todos"));
-  }
+// function App() {
+//        ei jaigai javascript code likhty hobe
+
+//   const title = "welcome to the joy's blog";
+
+//   let owner = {
+//     name: "nuri",
+//   };
+//   const link = "https://github.com/Rangerslider/";
+
+//   return (
+//     <div className="App">
+//       <h1>{title}</h1> //react e {} use korer lage
+//       {/*javascript use korty caile ei jaigai { } use korty hobe */}
+//       <div className="Content">
+//         <p>Owner name is : {owner.name}</p>
+//         <a href={link}>this one is dynamic link</a>
+//       </div>
+//     </div>
+//   );
+// }
+//example:
 
 
-  const onDelete = (todo) => {
-    console.log("I am ondelete of todo", todo);
-    // Deleting this way in react does not work
-    // let index = todos.indexOf(todo);
-    // todos.splice(index, 1);
+// function App() {
+//   const title ='Ishmoth Ura Nuri'; 
+//   const likes = 100;
+//   const link = "https://github.com/Rangerslider/";
+  
+//   return ( 
+//     <div className="App"> 
+//     <div className="content">
+//       <h1>{title}</h1> {/*dinamic value call kora hosse ejonno {} reat e alwase use hobe*/}
+//       <a href={link}>this one is dynamic link</a>
+//     <p>Blog liked {likes} times</p> {/* ekhane funcction app theke call kora + auto pragaraph show korsi  */}
+//     </div>
+//     </div>
+//   );
+// }
+  
 
-    setTodos(todos.filter((e) => {
-      return e !== todo;
-    }));
-    console.log("deleted", todos)
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }
 
-  const addTodo = (title, desc) => {
-    console.log("I am adding this todo", title, desc)
-    let sno;
-    if (todos.length === 0) {
-      sno = 0;
-    }
-    else {
-      sno = todos[todos.length - 1].sno + 1;
-    }
-    const myTodo = {
-      sno: sno,
-      title: title,
-      desc: desc,
-    }
-    setTodos([...todos, myTodo]);
-    console.log(myTodo);
-  }
+function App(){
 
-  const [todos, setTodos] = useState(initTodo);
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos])
-
-  return ( 
-    <> 
-    <Router>
-      <Header title="My Todos List" searchBar={false} /> 
-      <Switch>
-          <Route exact path="/" render={()=>{
-            return(
-            <>
-            <AddTodo addTodo={addTodo} />
-            <Todos todos={todos} onDelete={onDelete} /> 
-            </>)
-          }}> 
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route> 
-        </Switch> 
-      <Footer />
-    </Router>
+  return(
+    <>
+    {/*<Nav></Nav>*/  /*evabeo hobe aber self closing o kora jabe*/} 
+    <Nav  />
+    <Home />
     </>
+   
+
   );
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 export default App;
+
+// export default er por jei function ke index.js theke access kortyci seita return korbe ei jaiga theke.
+// R ei page er main kaj e hocche akta default funciton run kore seita ke return kore deya
+//first latter capital hobe sob somoi App , Joy , Exx etc.
+
+// ei app er moddhe e sob file thakbe akta web site er
+//likha hobe onno jaigai kintu import kore ei jaigai use kora hbe like Nav & Home
