@@ -1,7 +1,8 @@
-import './App.css';
-import Nav from'./Nav';
+import Nav from "./Nav";
 import Home from "./Home";
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Create from "./Create";
+//import BlogDetails from "./BlogDetails";
 // function App() {
 //        ei jaigai javascript code likhty hobe
 
@@ -23,9 +24,7 @@ import Home from "./Home";
 //     </div>
 //   );
 // }
-//example:
-
-
+                                  //example:
 // function App() {
 //   const title ='Ishmoth Ura Nuri'; 
 //   const likes = 100;
@@ -42,30 +41,32 @@ import Home from "./Home";
 //   );
 // }
   
+function App() {
+  //js code part
 
-
-function App(){
-
-  return(
-    <>
-    {/*<Nav></Nav>*/  /*evabeo hobe aber self closing o kora jabe*/} 
-    <Nav  />
-    <Home />
-    </>
-   
-
+  return (
+    <Router>
+      <div className="App">
+        <Nav />{" "}
+        {/* navbar ami sob somoi dekhbo ajonno nav er age route use kori nai  */}
+        <div className="Content">
+          <Switch>
+            <Route exact path="/">
+              {/* baper ta holo exact nah dile sob somoi e ei ./ path a jabe karon react sob somoi frist theke match kore r jeita firts a match pai hok seita akta part like ./ oita tei niye jabe   */}
+              <Home />
+            </Route>
+            <Route path="/create">
+              <Create />
+            </Route>
+            <Route path="/blog/:id">
+              {/*<BlogDetails />*/}
+            </Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
