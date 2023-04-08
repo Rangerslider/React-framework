@@ -2,7 +2,7 @@ import Nav from "./Nav";
 import Home from "./Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Create from "./Create";
-//import BlogDetails from "./BlogDetails";
+import BlogDetails from "./BlogDetails";
 // function App() {
 //        ei jaigai javascript code likhty hobe
 
@@ -74,7 +74,7 @@ export default App;
 
 // export default er por jei function ke index.js theke access kortyci seita return korbe ei jaiga theke.
 // R ei page er main kaj e hocche akta default funciton run kore seita ke return kore deya
-//first latter capital hobe sob somoi App , Joy , Exx etc.
+//first latter capital hobe sob somoi App , Nuri  etc.
 
 // ei app er moddhe e sob file thakbe akta web site er
 //likha hobe onno jaigai kintu import kore ei jaigai use kora hbe like Nav & Home
