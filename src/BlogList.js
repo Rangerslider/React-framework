@@ -1,4 +1,4 @@
-//props creating : child  function part
+//01. props creating : child  function part
 
 // const BlogList = (props) => {
 //     const blogs = props.blogs;
@@ -20,17 +20,42 @@
 // export default BlogList;
 
 
-//props deleting  : 
+//02. props deleting  : 
 
-const BlogList = (blogs,handleDelete) => {
+// const BlogList = (blogs,handleDelete) => {
+    
+//     return ( 
+//         <div className ="bloglist">
+//         {blogs.map((blog) =>(
+//             <div className="blog-preview" key={blog.id}>
+//                 <h2>{blog.title}</h2>
+//                 <p> writen by {blog.author} </p>
+//                 <button onClick={() => handleDelete(blog.id)}>delete blog</button>
+//                 </div>
+//         ))}
+//         </div>
+//     );
+// }
+ 
+// export default BlogList;
+
+
+
+
+//03.router :
+import{Link} from "react-router-dom "
+
+const BlogList = ({blogs,title}) => {
     
     return ( 
-        <div className ="bloglist">
+        <div className ="blog-list">
+            <h2>{title}</h2>
         {blogs.map((blog) =>(
             <div className="blog-preview" key={blog.id}>
+                <Link to = {`/blogs/${blog.id}`}>
                 <h2>{blog.title}</h2>
                 <p> writen by {blog.author} </p>
-                <button onClick={() => handleDelete(blog.id)}>delete blog</button>
+                </Link>
                 </div>
         ))}
         </div>
@@ -38,6 +63,7 @@ const BlogList = (blogs,handleDelete) => {
 }
  
 export default BlogList;
+
 
 
 
@@ -75,3 +101,9 @@ export default BlogList;
 // };
 
 // export default BlogList;
+
+
+
+
+
+
